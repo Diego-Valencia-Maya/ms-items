@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: ms-items
+
+  config:
+    import:
+      - "classpath:application-logging.yml"
+
+  profiles:
+    active: dev   # change to test or prod as needed
+
+server:
+  port: 8081
