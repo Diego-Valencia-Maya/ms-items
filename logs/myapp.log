@@ -311,3 +311,6 @@ feign.FeignException$NotFound: [404] during [GET] to [http://localhost:8080/1] [
 2025-10-14 13:43:55 [http-nio-8081-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
 2025-10-14 13:43:55 [http-nio-8081-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [ItemDao(productDao=ProductDao(id=1, name=Panasonic, price=800.0, createdAt=Sun Oct 12 18:00:00 CST 2 (truncated)...]
 2025-10-14 13:43:55 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-10-14 13:48:03 [RMI TCP Connection(21)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2025-10-14 13:48:03 [RMI TCP Connection(21)-127.0.0.1] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-14 13:48:03 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
