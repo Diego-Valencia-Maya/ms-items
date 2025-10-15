@@ -1,8 +1,10 @@
 package com.msvc.main.controller;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,26 +29,21 @@ public class ItemsController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<ItemDao> getItemDetail(@PathVariable Long id) {
+	public ResponseEntity<?> getItemDetail(@PathVariable Long id) {
 		Optional<ItemDao> product = productService.getDetail(id);
 		if (product.isPresent()) {
 			return ResponseEntity.ok(product.orElseThrow());
 		}
-		return ResponseEntity.notFound().build();
-	}
-	
-	/*
-	@GetMapping
-	public ResponseEntity<List<?>> getList() {
-		return ResponseEntity.ok(productService.convertList());
+		return ResponseEntity.status(404).body(Collections.singletonMap("message", "Producto no encontrado"));
 	}
 
-	@GetMapping("/{id}")
-	public ResponseEntity<?> getDetail(@PathVariable Long id) {
-		Optional<ProductDao> product = productService.convert(id);
-		if (product.isPresent()) {
-			return ResponseEntity.ok(product.orElseThrow());
-		}
-		return ResponseEntity.notFound().build();
-	}*/
+	/*
+	 * @GetMapping public ResponseEntity<List<?>> getList() { return
+	 * ResponseEntity.ok(productService.convertList()); }
+	 * 
+	 * @GetMapping("/{id}") public ResponseEntity<?> getDetail(@PathVariable Long
+	 * id) { Optional<ProductDao> product = productService.convert(id); if
+	 * (product.isPresent()) { return ResponseEntity.ok(product.orElseThrow()); }
+	 * return ResponseEntity.notFound().build(); }
+	 */
 }
