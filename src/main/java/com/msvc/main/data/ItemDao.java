@@ -7,7 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class ItemDao {
 
-	private ProductDao productDao;
+	private ProductDao product;
 	
 	private int quantity;
 

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.msvc.main.data.ProductDao;
 
-@FeignClient(url = "localhost:8080", name = "ms-products")
+@FeignClient(name = "ms-products")
 public interface ProductClient {
 
 	@GetMapping("/api/products/list")

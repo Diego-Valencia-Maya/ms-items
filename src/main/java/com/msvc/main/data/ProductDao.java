@@ -14,5 +14,8 @@ public class ProductDao {
 	private Double price;
 
 	private Date createdAt;
+	
+	private int port;
+	
 
 }
