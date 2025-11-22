@@ -21,12 +21,12 @@ import lombok.AllArgsConstructor;
 public class ItemsController {
 
 	final private ItemsService productService;
-
+	
 	@GetMapping("/list")
 	public ResponseEntity<List<ItemDao>> getProductsList() {
 		return ResponseEntity.ok(productService.convertList());
 	}
-
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<?> getItemDetail(@PathVariable Long id) {
 		Optional<ItemDao> product = productService.getDetail(id);
@@ -35,6 +35,7 @@ public class ItemsController {
 		}
 		return ResponseEntity.status(404).body(Collections.singletonMap("message", "Producto no encontrado"));
 	}
+	
 
 	/*
 	 * @GetMapping public ResponseEntity<List<?>> getList() { return
