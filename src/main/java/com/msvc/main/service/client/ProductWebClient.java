@@ -29,7 +29,7 @@ public class ProductWebClient implements ItemsService {
 	@Override
 	public List<ItemDao> convertList() {
 		// TODO Auto-generated method stub
-		return this.client.build().get().uri("http://ms-products/api/products/list").accept(MediaType.APPLICATION_JSON).retrieve()
+		return this.client.build().get().uri("/list").accept(MediaType.APPLICATION_JSON).retrieve()
 				.bodyToFlux(ProductDao.class)
 				.map(product -> new ItemDao(product, new Random().nextInt(10)+1)).collectList().block();
 	} 
@@ -41,7 +41,7 @@ public class ProductWebClient implements ItemsService {
 		params.put("id", id);
 		
 		try {
-			return Optional.ofNullable(client.build().get().uri("http://ms-products/api/products/{id}",params).accept(MediaType.APPLICATION_JSON)
+			return Optional.ofNullable(client.build().get().uri("/{id}",params).accept(MediaType.APPLICATION_JSON)
 					.retrieve().bodyToMono(ProductDao.class)
 					.map(product -> new ItemDao(product, new Random().nextInt(10)+1)).block());
 		} catch (WebClientResponseException e) {

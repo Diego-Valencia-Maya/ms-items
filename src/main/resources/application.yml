@@ -1,6 +1,8 @@
 spring:
   application:
     name: ms-items
+    external-services:
+      ms-prodcuts: http://ms-products/api/products
 
   config:
     import:
